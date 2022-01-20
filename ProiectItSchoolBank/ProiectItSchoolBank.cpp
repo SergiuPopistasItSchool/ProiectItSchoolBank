@@ -3,76 +3,41 @@
 
 #include <iostream>
 #include "ContBancar.h"
-int main()
-{
 
-}
-#include <iostream>
-#include <string>
-#include <algorithm>
+/*
+Banca Proiect.
+ITSchoolBank
 
-using namespace std;
+1. O clasa cont bancar ce trebuie sa aibe atribute precum nume,prenume, sold, tip de cont (valuta sau lei) IBAN
+Un cont trebuie neaparat sa aibe un nume,prenume si un IBAN care trebuie sa fie unic
 
-bool CheckPassword(string& pass)
-{
-    if (pass.length() <= 7) //verificare lungime string
-    {
-        bool haveUpperCase = false;
+2.in maine se afla terminalul principal al bancii in care trebuie sa avem urmatoarele optiunii
+   2.1 numar de conturi --> ce ne da numarul de conturi inregistrate in banca
+   2.2 creare cont --> cu aceasta optiune se poate crea un cont nou
+		2.2.1 --> ar trebui un scrren diferit si un set de optiuni in care
+		operatorul bancii sa introduca datele pentru crearea contului.(trebuie ca aceasta procedura sa verifice daca exista deja contul ce
+		se doreste creat iar daca da sa anunte opreatorul)
+		2.2.2 --> o optiune de return la main screen ( ecranul cu optiunie principale )
+   2.3 O optiune de modificare cont-> in care operatorul poate sa modifice date despre cont(ex schimbare nume, schimbare sume etc)
+   2.4 O optiune prin care un cont se poate sterge din sistemul bancii
+   2.5 O optiune prin care un cont poate sa extraga sume - > vrei sa adaugi sau sa extragi o suma de bani
+   2.6 O optiune prin care un cont sa vada care este suma din cont
+		Trebuie cautat contul intordus iar daca exista se poate vizualiza
+		Daca nu exista putem incepe o procedura de creare cont
 
-        for (int i = 0; i < pass.length(); i++)
-        {
-            if (!(pass[i] >= 97 && pass[i] <= 122)) //verificare litere mici
-            {
-                haveUpperCase = true;
-            }
-        }
-        return !haveUpperCase;
-    }
-    else
-    {
-        return false;
-    }
-}
+3. Un sistem in care putem sa salvam datele acestea intr-un fisier local (CSV file)
 
-string isPalindrome(string S)
-{
-    string P = S;
-    reverse(P.begin(), P.end());
-    if (S == P)
-    {
-        return "YOU HAVE UNLOCKED THE DOOR";
-    }
-    else
-    {
-        return "You haven't unlocked the door";
-    }
-}
+
+*/
 
 
 int main()
 {
-    cout << endl;
-    cout << " Introduceti o parola care sa respecte urmatoarea cerita:" << endl;
-    cout << endl;
-    cout << " Sa aibe maxim 7 caractere si sa fie doar din litere mici " << endl; //cerinta problema
-    cout << endl;
-    string S;
-    cout << "Introduceti parola: "; // ask input
-    cin >> S;
-    cout << endl;
-
-    if (CheckPassword(S))
-    {
-        cout << "Parola respecta cerinta\n" << endl;
-        sort(S.begin(), S.end());
-        do
-        {
-            cout << S << " --> ";
-            cout << isPalindrome(S) << endl;
-            cout << endl;
-        } while (next_permutation(S.begin(), S.end()));
-    }
-    else
-        cout << "Parola nu respecta cerinta\n";
+	std::cout << "Alege una din urmatoarele optiuni: \n";
+	std::cout << "1 -> Numar conturi\n";
+	std::cout << "2 -> Creare Cont\n";
+	std::cout << "3 -> Modificare cont\n";
+	std::cout << "4 -> Stergere Cont\n";
+	std::cout << "5 -> Eliberare/Depunere\n";
+	std::cout << "6 -> Detalii Cont\n";
 }
-

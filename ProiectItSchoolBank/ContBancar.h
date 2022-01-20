@@ -3,7 +3,7 @@
 enum class TipMoneda
 {
 	RON,
-	EUR,
+	EUR
 };
 
 class ContBancar
