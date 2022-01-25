@@ -53,6 +53,8 @@ int main()
 		{
 		case 1:
 			std::cout << "Ati ales optiunea 1\n";
+			std::cout << "Numarul total de conturi este: "
+				<< manager.GetNumarConturi() << std::endl;
 			break;
 		case 2:
 			std::cout << "Ati ales optiunea 2\n";
@@ -70,6 +72,8 @@ int main()
 			break;
 		case 6:
 			std::cout << "Ati ales optiunea 6\n";
+			system("cls");
+			manager.printAllCounturi();
 			break;
 		case 0:
 			std::cout << "Multumim, La reverede\n";
