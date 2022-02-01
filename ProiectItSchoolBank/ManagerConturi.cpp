@@ -1,5 +1,6 @@
 #include "ManagerConturi.h"
 
+
 void ManagerConturi::adugareCont()
 {
 	std::string nume, prenume, iban;
@@ -10,6 +11,7 @@ void ManagerConturi::adugareCont()
 	iban = CreateIban();
 	ContBancar* cont = new ContBancar(nume, prenume, iban);
 	m_listaConturi.push_back(cont);
+	m_fileManager->WriteToCSV(nume, prenume, iban,cont->getSold());
 
 	system("cls");
 
@@ -36,6 +38,43 @@ void ManagerConturi::printAllCounturi()
 
 }
 
+void ManagerConturi::EraseAccout()
+{
+	 std::cout << "Intdoduceti datele pentru contul ce uremaza sa fie sters\n";
+	 ContBancar* cont = FindAccout();
+	 std::vector<ContBancar*>::iterator it = std::find(m_listaConturi.begin(), m_listaConturi.end(),cont);
+	 m_listaConturi.erase(it);
+	 delete cont;
+
+}
+
+void ManagerConturi::Elibare_Depunere()
+{
+	ContBancar* cont = FindAccout();
+	if (cont != nullptr)
+	{
+		float valoare;
+		std::cout << "Intordu valoare: \n";
+		std::cin >> valoare;
+		cont->manipulareSold(valoare);
+	}
+	else
+	{
+		std::cout << "Contul este inexistend\n";
+	}
+
+}
+
+ManagerConturi::ManagerConturi()
+{
+	m_fileManager = new FileManager();
+}
+
+ManagerConturi::~ManagerConturi()
+{
+	delete m_fileManager;
+}
+
 
 std::string ManagerConturi::CreateIban()
 {
@@ -45,4 +84,21 @@ std::string ManagerConturi::CreateIban()
 	std::string stringIbanComplet = "RO44ItSchool" + stringIban;
 	return stringIbanComplet;
 
+}
+
+ContBancar* ManagerConturi::FindAccout()
+{
+	std::cout << "Numele Titularului: \n";
+	std::string nume;
+	std::cin >> nume;
+	//TODO trebuie existins fie facem o metoda ce accepa Nume sau Prenume , fie facem cumva in aceasta metoda
+
+	for (auto& cont : m_listaConturi)
+	{
+		if (cont->getNume() == nume)
+			return cont;
+	}
+
+	std::cout << "Titularul nu a fost gasit\n";
+	return nullptr;
 }

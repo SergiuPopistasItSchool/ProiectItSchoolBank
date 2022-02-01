@@ -20,5 +20,8 @@ public:
 	std::string getPrenume() const;
 	std::string getIban()const;
 	float getSold() const;
+
+	void manipulareSold(float suma);
+
 };
 

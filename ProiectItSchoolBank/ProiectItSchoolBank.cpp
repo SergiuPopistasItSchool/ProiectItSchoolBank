@@ -40,7 +40,7 @@ int main()
 		std::cout << "Alege una din urmatoarele optiuni: \n";
 		std::cout << "1 -> Numar conturi\n";
 		std::cout << "2 -> Creare Cont\n";
-		std::cout << "3 -> Modificare cont\n";
+		std::cout << "3 -> Modificare cont\n"; //TODO: homework -> Modicare cont poate schimba nume, prenume
 		std::cout << "4 -> Stergere Cont\n";
 		std::cout << "5 -> Eliberare/Depunere\n";
 		std::cout << "6 -> Detalii Cont\n";
@@ -66,13 +66,20 @@ int main()
 			break;
 		case 4:
 			std::cout << "Ati ales optiunea 4\n";
+			manager.EraseAccout();
 			break;
 		case 5:
 			std::cout << "Ati ales optiunea 5\n";
+			manager.Elibare_Depunere();
 			break;
 		case 6:
 			std::cout << "Ati ales optiunea 6\n";
 			system("cls");
+			// Vreti sa cautati un anumit cont? -> apasti tasa 1
+			//					O metodata prin care cereti detalii despre contul pe care vrem sa il gasiim
+			//						si desigur sa il cautam iar dupa aceea sa il printam
+			//Vrei sa le accesati pe toate? -> apasai tasta 2 
+
 			manager.printAllCounturi();
 			break;
 		case 0:
