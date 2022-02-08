@@ -8,7 +8,7 @@ class ManagerConturi
 {
 private:
 	std::vector<ContBancar*> m_listaConturi;
-	std::string CreateIban();
+	std::string CreateIban();//TODO: BUG: IBAan is not enterly unique beacuse if we stop the program it starts reuising keys
 	ContBancar* FindAccout();
 	FileManager* m_fileManager;
 

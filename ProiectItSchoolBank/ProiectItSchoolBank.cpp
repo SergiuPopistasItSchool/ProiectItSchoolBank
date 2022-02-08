@@ -29,7 +29,10 @@ Un cont trebuie neaparat sa aibe un nume,prenume si un IBAN care trebuie sa fie 
 
 
 */
-
+//ToDo: La optiunea Modificare Cont, schimbarea in cazua trebuie sa fie reflectata si in .csv
+//ToDo: La optiunea stergere cont dupa ce este sters din m_lista_conturi trebuie sters si din .csv
+//ToDo: Un sistem de user si parola ca sa asiguram ca opertorul poate sa lucreze pe statia respectiva
+//ToDo: La optiunea eliberare/depunere modifcarile sa fie reflectate si in .csv
 
 int main()
 {
@@ -40,7 +43,7 @@ int main()
 		std::cout << "Alege una din urmatoarele optiuni: \n";
 		std::cout << "1 -> Numar conturi\n";
 		std::cout << "2 -> Creare Cont\n";
-		std::cout << "3 -> Modificare cont\n"; //TODO: homework -> Modicare cont poate schimba nume, prenume
+		std::cout << "3 -> Modificare cont\n";
 		std::cout << "4 -> Stergere Cont\n";
 		std::cout << "5 -> Eliberare/Depunere\n";
 		std::cout << "6 -> Detalii Cont\n";

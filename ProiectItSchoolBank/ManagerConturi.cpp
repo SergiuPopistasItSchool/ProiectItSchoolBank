@@ -68,11 +68,14 @@ void ManagerConturi::Elibare_Depunere()
 ManagerConturi::ManagerConturi()
 {
 	m_fileManager = new FileManager();
+	// populam lista conturi cu ce se afla in .csv
+	m_listaConturi = m_fileManager->ReadContBancarFromCSV();
 }
 
 ManagerConturi::~ManagerConturi()
 {
 	delete m_fileManager;
+	//ToDo: Iteram m_lista_conturi si stergem fiecare cont in parte dupa care clearuim
 }
 
 
@@ -91,8 +94,7 @@ ContBancar* ManagerConturi::FindAccout()
 	std::cout << "Numele Titularului: \n";
 	std::string nume;
 	std::cin >> nume;
-	//TODO trebuie existins fie facem o metoda ce accepa Nume sau Prenume , fie facem cumva in aceasta metoda
-
+	
 	for (auto& cont : m_listaConturi)
 	{
 		if (cont->getNume() == nume)
